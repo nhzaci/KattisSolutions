@@ -11,16 +11,15 @@ for line in multiline_input:
       break
     counter = int(line)
     continue
-  else:
-    if line != '':
-      speed, elasped_time= map(lambda x: int(x), line.split())
-      actual_time, prev_time = elasped_time - prev_time, elasped_time
-      total_dist += speed * actual_time
-      counter -= 1
-      if counter == 0:
-        results.append(f'{total_dist} miles')
-        total_dist = 0
-        prev_time = 0
+  elif line != '':
+    speed, elasped_time= map(lambda x: int(x), line.split())
+    actual_time, prev_time = elasped_time - prev_time, elasped_time
+    total_dist += speed * actual_time
+    counter -= 1
+    if counter == 0:
+      results.append(f'{total_dist} miles')
+      total_dist = 0
+      prev_time = 0
 
 for result in results:
   print(result)
